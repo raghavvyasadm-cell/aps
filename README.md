@@ -12,7 +12,7 @@ replicate any firm's proprietary test.
 | Area | Status |
 |---|---|
 | **Dashboard** | Streak, training time, accuracy, response time, weekly chart, skill mastery, personal bests, week-on-week changes, recommendations, readiness (with coverage), recent sessions, baseline prompt |
-| **Learning Academy** | 3 tracks from a shared curriculum contract; 26 written lessons with KaTeX derivations and exactly-graded concept checks. Unwritten topics are listed as *planned* |
+| **Learning Academy** | 3 tracks from a shared curriculum contract; 26 written lessons with derivations and exactly-graded concept checks. Unwritten topics are listed as *planned* |
 | **Mental Mathematics** | 15 question types plus mixed: offline, seeded, exact rationals. Untimed, sprint, fixed-count, continuous and personal-best modes. Adaptive difficulty, retry-mistakes mode, per-type statistics |
 | **Sequences** | 12 rule families with ambiguity rejection, hint ladders and explanations; per-family results |
 | **Fractions** | Conversion rounds plus timed recognition rounds (speed and accuracy reported separately) |
@@ -20,20 +20,10 @@ replicate any firm's proprietary test.
 | **Competition problems** | Combinatorics, partitions, Diophantine, modular arithmetic, recurrences, derangements, all brute-force verified, with 3-step hints |
 | **Market games** | Market-making dice/cards (benchmarked against a reference maker), ETF arbitrage (NAV, FX, costs, depth, legging, 3 AI arbitrageurs), event contracts (Bayesian), Fermi (interval scoring), betting board (EV/Kelly, virtual money) |
 | **Cognitive** | Task switch, Flanker + Simon response conflict, Pincode working memory (adaptive staircase, error classification) |
-| **Research lab** | Synthetic data with a known data-generating process. Chronological split, OLS, residuals, out-of-sample R²/IC, costs, leakage and data-mining diagnostics, credibility verdict |
 | **Coding lab** | 6 problems with real tests. Python runs in WebAssembly in a Web Worker with a timeout. C++ is interface-only until the sandbox service exists. Systems performance simulator with real browser benchmarks |
 | **Assessments** | Baseline staircase. Server-validated timed formats (server-side grading from seeds) and local practice runs |
 | **Progress** | History charts, skills table with spaced-repetition due dates, daily plan, readiness method, game stats, server summary and cohort percentile (suppressed for small cohorts), measured performance diagnostics, sync queue |
-| **Accounts** | Register, login and logout; data export; account deletion |
 
-### Known limitations
-
-* Game scores are computed client-side and are not server-validated, so they are not ranked. Server replay is planned.
-* Code execution on the server (secret hidden tests, C++) needs the separate sandbox service, which is not built yet. `POST /code/run` returns 501.
-* The TS practice generators mirror the Python reference engines but are not byte-identical. Only server-generated assessments are authoritative.
-* Readiness and mastery are transparent rule-based models, not IRT. Percentiles need real cohorts: below 30 users they are suppressed.
-* The latency numbers in `docs/architecture.md` were measured on one reference environment. A full 10-minute timer-drift run has not been measured; drift is prevented by design and covered by unit tests.
-* Not yet written: lessons on options pricing, Poisson processes, an in-depth Girsanov treatment, tree ensembles and NUMA/networking. The research lab has no walk-forward refit mode yet.
 
 ## Architecture
 
